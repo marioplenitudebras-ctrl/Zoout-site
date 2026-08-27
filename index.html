@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOOUT — We solve. You grow.</title>
+<meta name="description" content="A ZOOUT transforma desafios de negócio em soluções digitais inteligentes, funcionais e estratégicas. Digital · AI · Systems.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Open Graph / WhatsApp / Instagram / Facebook preview -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="ZOOUT — We solve. You grow.">
+<meta property="og:description" content="Seu negócio tem um desafio. A ZOOUT tem a solução. Digital · AI · Systems.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://zoout-site.vercel.app/">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZOOUT — We solve. You grow.">
+<meta name="twitter:description" content="Seu negócio tem um desafio. A ZOOUT tem a solução. Digital · AI · Systems.">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ===== ZOOUT DESIGN SYSTEM — Direção Visual Master ===== */
+    --zoout-bg: #F7F8FA;
+    --zoout-bg-alt: #F4F6F9;
+    --zoout-surface: #FFFFFF;
+    --zoout-navy: #111A35;
+    --zoout-navy-dark: #0D1530;
+    --zoout-navy-alt: #162347;
+    --zoout-deep: #1B2338;
+    --zoout-blue: #244A9F;
+    --zoout-blue-light: #416FD4;
+    --zoout-light: #7EA7FF;
+    --zoout-text: #101522;
+    --zoout-text-secondary: #4D5565;
+    --zoout-text-muted: #747C8B;
+    --zoout-border: rgba(17, 26, 53, 0.10);
+    --zoout-border-strong: rgba(17, 26, 53, 0.16);
+    --zoout-glow: rgba(65, 111, 212, 0.10);
+    --zoout-shadow-sm: 0 8px 30px rgba(17,26,53,0.04);
+    --zoout-shadow-md: 0 20px 60px rgba(17,26,53,0.06);
+    --zoout-radius-sm: 8px;
+    --zoout-radius-md: 12px;
+    --zoout-radius-lg: 18px;
+    --zoout-transition: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Semantic aliases — kept so existing component rules below need no renaming */
+    --paper: var(--zoout-bg);
+    --paper-alt: var(--zoout-bg-alt);
+    --ink: var(--zoout-text);
+    --ink-soft: var(--zoout-text-secondary);
+    --muted: var(--zoout-text-muted);
+    --accent: var(--zoout-blue);
+    --accent-light: var(--zoout-blue-light);
+    --accent-lighter: var(--zoout-light);
+    --accent-soft: rgba(36,74,159,0.08);
+    --line: var(--zoout-border);
+    --dark: var(--zoout-navy);
+    --dark-alt: var(--zoout-navy-dark);
+    --dark-line: rgba(255,255,255,0.10);
+    --deep-blue: var(--zoout-navy);
+  }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  html{ scroll-behavior: auto; }
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .container{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .measure{
+    max-width: 640px;
+  }
+  a{ color: inherit; text-decoration: none; }
+
+  .kicker{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker::before{
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .kicker.on-dark{ color: #7EA7FF; }
+  .kicker.on-dark::before{ background: #7EA7FF; }
+
+  h1, h2, h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .w-light{
+    font-weight: 400;
+  }
+  .hero h1 .hline{
+    display: block;
+  }
+
+  .hl-accent{ color: var(--accent); font-weight: 600; }
+  .hl-navy{ color: var(--dark); }
+  .section-dark .hl-accent, .section-blue .hl-accent{ color: var(--accent-lighter); }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14.5px;
+    padding: 14px 24px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+  }
+  .btn .arrow{
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+  .btn:hover .arrow{
+    transform: translateX(4px);
+  }
+  .btn-primary{
+    background: var(--dark);
+    color: white;
+    transition: transform var(--zoout-transition), box-shadow var(--zoout-transition), background var(--zoout-transition);
+  }
+  .btn-primary:hover{
+    background: var(--zoout-navy-alt);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(17,26,53,0.12), 0 0 30px var(--zoout-glow);
+  }
+  .btn-ghost{
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 4px 0;
+    border-radius: 0;
+    font-size: 14.5px;
+  }
+  .btn-ghost:hover{ color: var(--accent); border-color: var(--accent); }
+  .btn-ghost.on-dark{ color: var(--paper); border-color: var(--paper); }
+  .btn-ghost.on-dark:hover{ color: var(--accent-lighter); border-color: var(--accent-lighter); }
+
+  /* ---------------- NAV ---------------- */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(243,244,241,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .scroll-progress{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2.5px;
+    width: 0%;
+    background: var(--accent);
+    z-index: 60;
+    transition: width 0.08s linear;
+  }
+  nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .logo{
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+    letter-spacing: -0.01em;
+  }
+  .nav-links{
+    display: flex;
+    gap: 36px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .nav-links a{ position: relative; padding-bottom: 4px; transition: color 0.2s ease; }
+  .nav-links a::after{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0%;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover{ color: var(--accent); }
+  .nav-links a.active{ color: var(--ink); font-weight: 600; }
+  .nav-links a.active::after{ width: 100%; }
+
+  .nav-right{ display: flex; align-items: center; gap: 28px; }
+  @media (max-width: 780px){
+    .nav-links{ display: none; }
+  }
+
+  /* ---------------- SECTION BASE ---------------- */
+  section{
+    padding: 92px 0;
+    position: relative;
+  }
+  .section-alt{ background: var(--paper-alt); }
+  .section-dark{
+    background: var(--dark);
+    color: var(--paper);
+  }
+  .section-blue{
+    background: var(--zoout-deep);
+    color: var(--paper);
+  }
+  .section-blue .solucoes-head h2{ color: var(--paper); }
+  .section-blue .cards3{ background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.14); }
+  .section-blue .card{ background: rgba(255,255,255,0.07); }
+  .section-blue .card:hover{
+    background: rgba(255,255,255,0.11);
+    border-top-color: rgba(255,255,255,0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  .section-blue .card .tag{ color: var(--accent-lighter); }
+  .section-blue .card h3{ color: #fff; }
+  .section-blue .card p{ color: rgba(255,255,255,0.72); }
+  .section-blue .card ul{ color: rgba(255,255,255,0.82); }
+  .section-blue .card ul li::before{ color: var(--accent-lighter); }
+  .section-blue .stack-strip{ border-top-color: rgba(255,255,255,0.18); }
+  .section-blue .stack-label{ color: rgba(255,255,255,0.55); }
+  .section-blue .stack-pills span{
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+  }
+  @media (max-width: 780px){
+    section{ padding: 58px 0; }
+  }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    padding-top: 88px;
+    padding-bottom: 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before{
+    content: '';
+    position: absolute;
+    inset: -20% -10% -10% -10%;
+    z-index: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center -1px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 25%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 25%, transparent 75%);
+    pointer-events: none;
+    transform: perspective(1000px) rotateX(48deg);
+    transform-origin: center 30%;
+    animation: heroGridDrift 34s linear infinite;
+  }
+  @keyframes heroGridDrift{
+    from{ background-position: center -1px; }
+    to{ background-position: center -641px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero::before{ animation: none; }
+  }
+  .hero .container{ position: relative; z-index: 1; }
+  .hero-single{
+    max-width: 720px;
+  }
+  .hero h1{
+    font-size: 60px;
+    line-height: 1.06;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .hero h1 .hl-accent{ font-weight: 400; }
+  .hero p{
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 28px;
+  }
+  .hero-caption{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .trust-badges{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .trust-badges span{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .trust-badges span::before{
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  @media (max-width: 780px){
+    .trust-badges{ gap: 8px 16px; }
+  }
+  @media (max-width: 900px){
+    .hero h1{ font-size: 40px; }
+  }
+
+  /* ---------------- PROBLEMA ---------------- */
+  .problema-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .problema-grid h2{
+    font-size: 36px;
+    line-height: 1.18;
+  }
+  .pain-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pain-list li{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 16px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+  .pain-list li::before{
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .problema-close{
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  @media (max-width: 900px){
+    .problema-grid{ grid-template-columns: 1fr; gap: 36px; }
+    .problema-grid h2{ font-size: 28px; }
+  }
+
+  /* ---------------- POSICIONAMENTO ---------------- */
+  .posicionamento{
+    text-align: left;
+  }
+  .posicionamento h2{
+    max-width: 780px;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .posicionamento p{
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 0 8px;
+    text-align: left;
+  }
+  .posicionamento .signature-line{
+    margin-top: 34px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  @media (max-width: 780px){
+    .posicionamento h2{ font-size: 30px; }
+  }
+
+  /* ---------------- SOLUÇÕES ---------------- */
+  .solucoes-head{
+    margin-bottom: 40px;
+  }
+  .solucoes-head h2{
+    font-size: 38px;
+    max-width: 520px;
+  }
+  .cards3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .card{
+    background: rgba(255,255,255,0.6);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+    border-top: 1px solid transparent;
+    transition: transform var(--zoout-transition), box-shadow var(--zoout-transition), border-color var(--zoout-transition), background var(--zoout-transition);
+  }
+  .card:hover{
+    transform: translateY(-3px);
+    box-shadow: var(--zoout-shadow-md);
+    border-top-color: rgba(36,74,159,0.35);
+    position: relative;
+    z-index: 2;
+  }
+  .card .glyph{ margin-bottom: 20px; }
+  .card .tag{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .card h3{
+    font-size: 21px;
+    margin-bottom: 8px;
+  }
+  .card p{
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .card ul{
+    list-style: none;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .card ul li::before{ content: '· '; color: var(--accent); }
+  .card .btn-ghost{ margin-top: auto; align-self: flex-start; }
+  @media (max-width: 900px){
+    .cards3{ grid-template-columns: 1fr; }
+    .solucoes-head h2{ font-size: 28px; }
+  }
+
+  .stack-strip{
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .stack-label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .stack-pills{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .stack-pills span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ---------------- TRANSFORMAÇÃO (dark) ---------------- */
+  .transformacao{ text-align: left; }
+  .transformacao h2{
+    max-width: 620px;
+    color: var(--paper);
+    font-size: 38px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .transform-lines{
+    max-width: 620px;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .transform-lines p{
+    font-size: 18px;
+    color: #C6C9D6;
+  }
+  .transform-final{
+    max-width: 620px;
+    margin-top: 36px;
+    padding-top: 26px;
+    border-top: 1px solid var(--dark-line);
+    font-size: 20px;
+    color: var(--paper);
+  }
+  @media (max-width: 780px){
+    .transformacao h2{ font-size: 28px; }
+    .transform-lines p{ font-size: 16px; }
+  }
+
+  /* ---------------- PROCESSO ---------------- */
+  .processo-head{ margin-bottom: 44px; max-width: 560px; }
+  .processo-head h2{ font-size: 38px; }
+  .steps{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+  .step .num{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .step h3{ font-size: 20px; margin-bottom: 8px; }
+  .step p{ font-size: 14.5px; color: var(--muted); line-height: 1.6; }
+  .processo-highlight{
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .processo-highlight p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    line-height: 1.35;
+    max-width: 560px;
+    color: var(--ink);
+  }
+  @media (max-width: 900px){
+    .steps{ grid-template-columns: 1fr; gap: 32px; }
+    .processo-head h2{ font-size: 28px; }
+    .processo-highlight p{ font-size: 21px; }
+  }
+
+  /* ---------------- PROJETOS / RESULTADOS ---------------- */
+  .projetos-head{ margin-bottom: 40px; max-width: 560px; }
+  .projetos-head h2{ font-size: 38px; }
+  .cases{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .case{
+    display: flex;
+    flex-direction: column;
+  }
+  .case-visual{
+    height: 340px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+  .case-visual.c1{ background: linear-gradient(155deg, #111A35 0%, #244A9F 60%, #416FD4 100%); }
+  .case-visual.c2{ background: linear-gradient(155deg, #111A35 0%, #4D5565 55%, #747C8B 100%); }
+  .case-visual span{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+  }
+  .case h3{ font-size: 19px; margin-bottom: 4px; }
+  .case .role{ font-size: 13.5px; color: var(--muted); }
+  @media (max-width: 780px){
+    .cases{ grid-template-columns: 1fr; }
+    .projetos-head h2{ font-size: 28px; }
+  }
+
+  /* ---------------- DIFERENCIAL ---------------- */
+  .diferencial-words{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px 0 22px;
+  }
+  .diferencial-words span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 46px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .diferencial-words span.accent{ color: var(--deep-blue); }
+  .diferencial p.sub{
+    font-size: 15px;
+    color: var(--muted);
+  }
+  @media (max-width: 780px){
+    .diferencial-words span{ font-size: 30px; }
+  }
+
+  /* ---------------- FAQ ---------------- */
+  .faq-head{ margin-bottom: 32px; max-width: 560px; }
+  .faq-head h2{ font-size: 38px; }
+  .faq-list{
+    border-top: 1px solid var(--line);
+  }
+  .faq-item{
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+  }
+  .faq-item summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker{ display: none; }
+  .faq-item summary .plus{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+  .faq-item[open] summary .plus{ transform: rotate(45deg); }
+  .faq-item p{
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 640px;
+  }
+  @media (max-width: 780px){
+    .faq-head h2{ font-size: 28px; }
+    .faq-item summary{ font-size: 16px; }
+  }
+
+  /* ---------------- CONTATO ---------------- */
+  .contato{
+    background: var(--paper-alt);
+    position: relative;
+    overflow: hidden;
+  }
+  .contato-grid{
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .contato-h2{
+    font-size: 46px;
+    line-height: 1.12;
+    margin-bottom: 16px;
+  }
+  .mini-dash{
+    width: 34px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 16px;
+  }
+  .mini-dash.light{ background: rgba(255,255,255,0.35); margin: 10px 0; }
+  .contato-sub{
+    font-size: 16.5px;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+  .contact-list{
+    border-top: 1px solid var(--line);
+  }
+  .contact-item{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-icon{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--zoout-border-strong);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color var(--zoout-transition), box-shadow var(--zoout-transition);
+  }
+  .contact-item:hover .contact-icon{
+    border-color: rgba(126,167,255,0.5);
+    box-shadow: 0 0 20px var(--zoout-glow);
+  }
+  .contact-icon svg{ width: 22px; height: 22px; }
+  .contact-label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .contact-sub{
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .contact-value{
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .contact-value:hover{ color: var(--accent-light); }
+
+  .contato-right{
+    position: relative;
+    min-height: 460px;
+  }
+  .z-motif{
+    position: absolute;
+    top: -20px;
+    right: -60px;
+    width: 130%;
+    height: auto;
+    pointer-events: none;
+  }
+  .dark-cta-card{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background: var(--dark);
+    border-radius: var(--zoout-radius-md);
+    padding: 32px 30px;
+    margin-top: 260px;
+    transition: transform var(--zoout-transition), box-shadow var(--zoout-transition);
+  }
+  .dark-cta-card::before{
+    content: '';
+    position: absolute;
+    inset: -12%;
+    background: radial-gradient(circle at 30% 40%, rgba(65,111,212,0.12), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .dark-cta-card:hover{
+    transform: translateY(-3px);
+    box-shadow: var(--zoout-shadow-md), 0 0 40px rgba(65,111,212,0.10);
+  }
+  .dark-cta-icon{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--deep-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .dark-cta-icon svg{ width: 26px; height: 26px; position: relative; z-index: 2; }
+  .glow-ring{
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(126,167,255,0.3);
+    box-shadow: 0 0 28px rgba(65,111,212,0.15);
+  }
+  .dark-cta-label{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7EA7FF;
+  }
+  .dark-cta-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: white;
+    margin-top: 4px;
+  }
+  .dark-cta-link{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  @media (max-width: 900px){
+    .contato-grid{ grid-template-columns: 1fr; }
+    .contato-right{ min-height: auto; margin-top: 20px; }
+    .z-motif{ display: none; }
+    .dark-cta-card{ margin-top: 0; }
+    .contato-h2{ font-size: 32px; }
+  }
+
+  /* ---------------- FOOTER ---------------- */
+  footer{
+    background: var(--dark);
+    color: var(--paper);
+    padding: 46px 0 28px;
+  }
+  .footer-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 38px;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  .footer-logo{
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.28em;
+    margin-bottom: 8px;
+  }
+  .footer-tag{ font-size: 14px; color: #8B8E98; }
+  .footer-tag .hl-accent{ color: var(--accent-lighter); }
+  .footer-links{
+    display: flex;
+    gap: 48px;
+  }
+  .footer-links div{ display: flex; flex-direction: column; gap: 10px; }
+  .footer-links .h{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #6B6E78;
+    margin-bottom: 4px;
+  }
+  .footer-links a{ font-size: 13.5px; color: #C6C9D6; }
+  .footer-links a:hover{ color: #7EA7FF; }
+  .footer-bottom{
+    border-top: 1px solid var(--dark-line);
+    padding-top: 18px;
+    font-size: 12px;
+    color: #6B6E78;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  @media (max-width: 780px){
+    .footer-links{ gap: 28px; flex-wrap: wrap; }
+  }
+
+  /* ---------------- WHATSAPP FLOAT ---------------- */
+  .wa-float{
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    z-index: 100;
+    transition: transform 0.2s ease;
+  }
+  .wa-float:hover{ transform: scale(1.07); }
+  .wa-float svg{ width: 30px; height: 30px; }
+  .wa-ring{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    animation: wa-pulse 2.2s ease-out infinite;
+  }
+  @keyframes wa-pulse{
+    0%{ transform: scale(1); opacity: 0.6; }
+    100%{ transform: scale(1.6); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .wa-ring{ animation: none; display: none; }
+  }
+  @media (max-width: 780px){
+    .wa-float{ width: 54px; height: 54px; bottom: 18px; right: 18px; }
+    .wa-float svg{ width: 27px; height: 27px; }
+  }
+
+  /* reveal on scroll: base opacity only, GSAP/ScrollTrigger drives the actual animation */
+  .reveal{
+    opacity: 0;
+  }
+  .reveal.is-visible{ opacity: 1; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity: 1; transform: none; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav>
+    <div class="container">
+      <div class="logo">ZOOUT</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#solucoes" data-section="solucoes">Soluções</a>
+        <a href="#projetos" data-section="projetos">Resultados</a>
+        <a href="#processo" data-section="processo">Processo</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://wa.me/5511986647333?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20ZOOUT%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20meu%20neg%C3%B3cio." class="btn btn-primary" target="_blank" rel="noopener">Soluções ZOOUT <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </nav>
+
+<!-- 01 HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-single">
+      <div class="kicker">Digital · AI · Systems</div>
+      <h1><span class="hline w-light">Seu negócio tem</span><span class="hline">um desafio.</span><span class="hline w-light">A ZOOUT tem</span><span class="hline">a <span class="hl-accent">solução.</span></span></h1>
+      <p class="measure">Cada dia sem resolver o que trava sua empresa é tempo, dinheiro e cliente perdidos. Unimos design, tecnologia, inteligência artificial e sistemas para resolver o problema de verdade e fazer seu negócio crescer.</p>
+      <a href="https://wa.me/5511986647333?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20ZOOUT%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20meu%20neg%C3%B3cio." class="btn btn-primary" target="_blank" rel="noopener">Falar com a ZOOUT <span class="arrow">→</span></a>
+      <div class="hero-caption">Diagnóstico gratuito · Sem compromisso</div>
+      <div class="trust-badges">
+        <span>Prazo definido em contrato</span>
+        <span>Suporte direto com quem constrói</span>
+        <span>Poucos projetos por vez, pra manter qualidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SOLUÇÕES (2ª dobra, azul) -->
+<section id="solucoes" class="section-blue reveal">
+  <div class="container">
+    <div class="solucoes-head">
+      <div class="kicker on-dark">Soluções</div>
+      <h2><span class="w-light">Qual dessas está</span> travando seu negócio <span class="w-light">agora?</span></h2>
+    </div>
+    <div class="cards3">
+      <div class="card">
+        <svg class="glyph" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="24" rx="2" stroke="#7EA7FF" stroke-width="1.4"/><line x1="1" y1="8" x2="33" y2="8" stroke="#7EA7FF" stroke-width="1.4"/><line x1="12" y1="30" x2="22" y2="30" stroke="#7EA7FF" stroke-width="1.4"/><line x1="17" y1="25" x2="17" y2="30" stroke="#7EA7FF" stroke-width="1.4"/></svg>
+        <div class="tag">DIGITAL</div>
+        <h3>Sua presença digital começa aqui.</h3>
+        <p>Criamos experiências digitais profissionais, estratégicas e pensadas para conectar sua empresa às pessoas certas.</p>
+        <ul>
+          <li>Websites Institucionais</li>
+          <li>Landing Pages</li>
+          <li>Bio Sites</li>
+          <li>UX / UI Design</li>
+        </ul>
+        <a href="#" class="btn btn-ghost on-dark">Conhecer soluções digitais <span class="arrow">→</span></a>
+      </div>
+      <div class="card">
+        <svg class="glyph" width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="4" stroke="#7EA7FF" stroke-width="1.4"/><circle cx="5" cy="6" r="2.5" stroke="#7EA7FF" stroke-width="1.4"/><circle cx="29" cy="6" r="2.5" stroke="#7EA7FF" stroke-width="1.4"/><circle cx="5" cy="28" r="2.5" stroke="#7EA7FF" stroke-width="1.4"/><circle cx="29" cy="28" r="2.5" stroke="#7EA7FF" stroke-width="1.4"/><line x1="7" y1="7.5" x2="14.5" y2="14.5" stroke="#7EA7FF" stroke-width="1.2"/><line x1="27" y1="7.5" x2="19.5" y2="14.5" stroke="#7EA7FF" stroke-width="1.2"/><line x1="7" y1="26.5" x2="14.5" y2="19.5" stroke="#7EA7FF" stroke-width="1.2"/><line x1="27" y1="26.5" x2="19.5" y2="19.5" stroke="#7EA7FF" stroke-width="1.2"/></svg>
+        <div class="tag">AI</div>
+        <h3>Inteligência aplicada ao seu negócio.</h3>
+        <p>Automatizamos tarefas, atendimentos e processos para que sua equipe possa dedicar tempo ao que realmente importa.</p>
+        <ul>
+          <li>Agentes de IA</li>
+          <li>Atendimento inteligente</li>
+          <li>Automação de processos</li>
+          <li>Qualificação de leads</li>
+        </ul>
+        <a href="#" class="btn btn-ghost on-dark">Conhecer soluções de IA <span class="arrow">→</span></a>
+      </div>
+      <div class="card">
+        <svg class="glyph" width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="13" height="13" rx="1.5" stroke="#7EA7FF" stroke-width="1.4"/><rect x="20" y="20" width="13" height="13" rx="1.5" stroke="#7EA7FF" stroke-width="1.4"/><path d="M14 7.5H20a3 3 0 0 1 3 3V20" stroke="#7EA7FF" stroke-width="1.4" fill="none"/></svg>
+        <div class="tag">SYSTEMS</div>
+        <h3>Sistemas que trabalham juntos.</h3>
+        <p>Conectamos ferramentas e criamos soluções personalizadas para tornar sua operação mais simples, organizada e eficiente.</p>
+        <ul>
+          <li>Sistemas personalizados</li>
+          <li>Integrações</li>
+          <li>Dashboards</li>
+          <li>Workflows</li>
+        </ul>
+        <a href="#" class="btn btn-ghost on-dark">Conhecer Systems <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="stack-strip">
+      <span class="stack-label">Stack que usamos</span>
+      <div class="stack-pills">
+        <span>React</span>
+        <span>Next.js</span>
+        <span>Supabase</span>
+        <span>PostgreSQL</span>
+        <span>n8n</span>
+        <span>OpenAI</span>
+        <span>Meta Ads</span>
+        <span>Vercel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PROJETOS / RESULTADOS -->
+<section id="projetos" class="section-alt reveal">
+  <div class="container">
+    <div class="projetos-head">
+      <div class="kicker">Projetos · Resultados</div>
+      <h2>Problemas reais. Soluções reais.</h2>
+      <p style="color:var(--muted); font-size:15px; margin-top:14px;">Cada projeto começa com uma necessidade diferente. O resultado é uma solução construída para aquele contexto.</p>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <div class="case-visual c1"><span>Imagem do projeto</span></div>
+        <h3>Karolyna Loiola</h3>
+        <div class="role">Presença digital · Experiência</div>
+      </div>
+      <div class="case">
+        <div class="case-visual c2"><span>Imagem do projeto</span></div>
+        <h3>Dra. Michele Ribas</h3>
+        <div class="role">Presença digital · Estrutura institucional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PROBLEMA -->
+<section class="reveal">
+  <div class="container problema-grid">
+    <div>
+      <div class="kicker">O problema</div>
+      <h2><span class="w-light">Nem todo problema precisa de</span> mais esforço. <span class="w-light">Às vezes, precisa de uma</span> <span class="hl-accent">solução melhor.</span></h2>
+    </div>
+    <div>
+      <ul class="pain-list">
+        <li>Processos manuais que consomem tempo e dinheiro.</li>
+        <li>Atendimentos lentos perdendo clientes todos os dias.</li>
+        <li>Uma presença digital que não representa o tamanho do seu negócio.</li>
+        <li>Ferramentas que não conversam entre si e geram retrabalho.</li>
+        <li>Informações espalhadas, decisões mais lentas.</li>
+      </ul>
+      <p class="problema-close">Enquanto isso, outro negócio no seu mercado já resolveu o mesmo problema e saiu na frente. Cada mês sem resolver <span class="hl-accent">custa mais caro</span> do que resolver agora.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 POSICIONAMENTO -->
+<section class="posicionamento reveal">
+  <div class="container">
+    <h2><span class="w-light">Primeiro, entendemos</span> o problema.<br><span class="w-light">Só depois, escolhemos a</span> tecnologia certa.</h2>
+    <p>Somos uma empresa de soluções digitais. Unimos design, tecnologia e inteligência artificial pra resolver o que trava o seu negócio, sempre a partir de uma conversa real sobre o problema, não de um catálogo pronto de serviços.</p>
+    <p>Não existe pacote fechado nem solução genérica. Cada projeto é pensado pro <span class="hl-accent">seu</span> contexto, do jeito que o seu negócio realmente precisa.</p>
+  </div>
+</section>
+
+<!-- 06 TRANSFORMAÇÃO -->
+<section class="section-dark transformacao reveal">
+  <div class="container">
+    <div class="kicker on-dark">Transformação</div>
+    <h2>Mais do que construir.<br>Transformar.</h2>
+    <div class="transform-lines">
+      <p>Uma presença digital mais profissional.</p>
+      <p>Um atendimento mais eficiente.</p>
+      <p>Processos menos manuais.</p>
+      <p>Sistemas mais conectados.</p>
+      <p>Uma operação preparada para o próximo passo.</p>
+    </div>
+    <div class="transform-final">Porque tecnologia só faz sentido quando <span class="hl-accent">melhora alguma coisa.</span></div>
+  </div>
+</section>
+
+<!-- 07 PROCESSO -->
+<section id="processo" class="reveal">
+  <div class="container">
+    <div class="processo-head">
+      <div class="kicker">Processo</div>
+      <h2><span class="w-light">Do desafio</span> à solução.</h2>
+      <p style="color:var(--muted); font-size:15px; margin-top:14px;">Não existe uma fórmula pronta. Cada negócio tem uma realidade. Cada problema exige uma abordagem.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 · Entendemos</div>
+        <p>Conhecemos seu negócio, seus objetivos e o desafio que precisa ser resolvido.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 · Construímos</div>
+        <p>Transformamos a estratégia em uma solução digital funcional e personalizada.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 · Evoluímos</div>
+        <p>Acompanhamos a solução e encontramos novas possibilidades de melhoria.</p>
+      </div>
+    </div>
+    <div class="processo-highlight">
+      <p>Você não precisa saber qual tecnologia usar. Só precisa decidir que vai parar de perder <span class="hl-accent">tempo e dinheiro</span> com o problema que já existe.</p>
+      <a href="#cta" class="btn btn-ghost">Conte seu desafio <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DIFERENCIAL -->
+<section class="diferencial reveal">
+  <div class="container">
+    <div class="kicker">Diferencial</div>
+    <div class="diferencial-words">
+      <span>Clara.</span>
+      <span>Funcional.</span>
+      <span class="accent">Inteligente.</span>
+      <span>Feita para você.</span>
+    </div>
+    <p class="sub">É assim que acreditamos que uma solução digital deve ser.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-alt reveal">
+  <div class="container">
+    <div class="faq-head">
+      <div class="kicker">Dúvidas frequentes</div>
+      <h2>Perguntas que recebemos antes de fechar.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Quanto custa um projeto com a ZOOUT?<span class="plus">+</span></summary>
+        <p>Cada projeto tem um escopo diferente. Fazemos um diagnóstico gratuito pra entender sua necessidade real e te passamos um valor fechado, sem surpresa depois.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto tempo leva pra ficar pronto?<span class="plus">+</span></summary>
+        <p>Depende da solução: uma landing page ou bio site sai em poucos dias. Sistemas e automações mais robustas têm prazo definido na proposta, antes de você aprovar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso entender de tecnologia pra contratar?<span class="plus">+</span></summary>
+        <p>Não. Você só precisa saber qual problema quer resolver. Entender qual tecnologia usar é trabalho nosso, não seu.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como funciona o suporte depois da entrega?<span class="plus">+</span></summary>
+        <p>Você não fica sozinho depois que o projeto vai ao ar. Definimos junto o que faz sentido pro seu caso: ajustes pontuais ou suporte contínuo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>A ZOOUT atende negócio de qualquer tamanho?<span class="plus">+</span></summary>
+        <p>Atendemos negócios em qualquer estágio, de quem está estruturando a primeira presença digital até quem já quer automatizar processos mais complexos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>E se eu não gostar do resultado?<span class="plus">+</span></summary>
+        <p>O diagnóstico inicial é gratuito e sem compromisso. Você só decide seguir depois de ver exatamente o que vai ser entregue e por quanto. Sem surpresa, sem pressão.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 09 CONTATO -->
+<section id="cta" class="contato reveal">
+  <div class="container">
+    <div class="contato-grid">
+      <div class="contato-left">
+        <div class="kicker">Contato</div>
+        <h2 class="contato-h2">Fale com<br><span class="hl-navy">a ZOOUT.</span></h2>
+        <div class="mini-dash"></div>
+        <p class="contato-sub">Estamos prontos para transformar sua ideia em <span class="hl-accent">solução.</span></p>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.79 13.5L3 21l4.62-1.21A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.4"/><path d="M8.5 8.7c.15-.4.4-.4.6-.4h.5c.16 0 .35 0 .5.4.2.5.6 1.5.65 1.6.05.1.08.22.02.35-.06.13-.1.2-.2.32-.1.12-.2.22-.3.3-.1.1-.2.2-.09.4.12.2.5.85 1.1 1.37.75.68 1.4.9 1.6 1 .2.1.32.08.44-.05.12-.13.5-.58.63-.78.13-.2.26-.16.43-.1.18.07 1.1.53 1.3.62.2.1.33.15.38.23.05.1.05.55-.13 1.08-.18.53-1.05 1.02-1.45 1.08-.37.06-.83.08-1.34-.08-.3-.1-.7-.23-1.2-.45-2.1-.9-3.47-3-3.58-3.15-.1-.14-.86-1.14-.86-2.18 0-1.03.55-1.54.75-1.75z" fill="currentColor"/></svg>
+            </div>
+            <div class="contact-info">
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-sub">Atendimento comercial</div>
+              <a href="https://wa.me/5511986647333?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20ZOOUT%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20meu%20neg%C3%B3cio." class="contact-value" target="_blank" rel="noopener">+55 (11) 98664-7333</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3.5 6.5L12 13l8.5-6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div class="contact-info">
+              <div class="contact-label">E-mail</div>
+              <div class="contact-sub">Envie sua mensagem</div>
+              <a href="mailto:zoout.tech@gmail.com" class="contact-value">zoout.tech@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.7 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.7-3.6-9s1.2-6.5 3.6-9z" stroke="currentColor" stroke-width="1.4"/></svg>
+            </div>
+            <div class="contact-info">
+              <div class="contact-label">Website</div>
+              <div class="contact-sub">Conheça mais sobre a ZOOUT</div>
+              <a href="https://zoout.com.br" class="contact-value">zoout.com.br</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contato-right">
+        <svg class="z-motif" viewBox="0 0 420 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 90 L310 90 Q340 90 340 118 Q340 138 322 152 L138 388 Q118 412 118 438 Q118 462 148 462 L390 462" stroke="var(--zoout-navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
+        </svg>
+
+        <a href="https://wa.me/5511986647333?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20ZOOUT%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20meu%20neg%C3%B3cio." class="dark-cta-card" target="_blank" rel="noopener">
+          <div class="dark-cta-icon">
+            <span class="glow-ring"></span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="white" stroke-width="1.4"/><circle cx="8.5" cy="12" r="1" fill="white"/><circle cx="12" cy="12" r="1" fill="white"/><circle cx="15.5" cy="12" r="1" fill="white"/></svg>
+          </div>
+          <div class="dark-cta-text">
+            <div class="dark-cta-label">Pronto para</div>
+            <div class="dark-cta-title">Tirar a ideia do papel?</div>
+            <div class="mini-dash light"></div>
+            <div class="dark-cta-link">Fale com a ZOOUT <span class="arrow">→</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">ZOOUT</div>
+        <div class="footer-tag">We <span class="hl-accent">solve</span>. You grow.</div>
+      </div>
+      <div class="footer-links">
+        <div>
+          <div class="h">SOLUÇÕES</div>
+          <a href="#solucoes">Digital</a>
+          <a href="#solucoes">AI</a>
+          <a href="#solucoes">Systems</a>
+        </div>
+        <div>
+          <div class="h">EMPRESA</div>
+          <a href="#processo">Processo</a>
+          <a href="#projetos">Resultados</a>
+          <a href="#cta">Contato</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Soluções digitais para negócios em qualquer estágio.</span>
+      <span>© 2026 ZOOUT</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511986647333?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20ZOOUT%20sobre%20uma%20solu%C3%A7%C3%A3o%20para%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" class="wa-float" aria-label="Falar no WhatsApp">
+  <span class="wa-ring"></span>
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.25.62 4.36 1.7 6.17L4 29l7.99-1.66a11.9 11.9 0 0 0 4.02.7h.01c6.63 0 12.01-5.38 12.01-12.01C28.03 8.38 22.65 3 16.01 3zm0 21.75h-.01a9.7 9.7 0 0 1-4.95-1.36l-.36-.21-4.74.99 1-4.63-.23-.37a9.68 9.68 0 0 1-1.49-5.16C5.23 9.6 10.06 4.77 16 4.77c5.94 0 9.86 4.83 9.86 10.24 0 5.94-4.83 9.74-9.85 9.74zm5.46-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<!-- Motion libraries (CDN, no install needed) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis: smooth/fluid page scroll (skipped if reduced motion is preferred)
+  let lenis = null;
+  if (!prefersReducedMotion && window.Lenis) {
+    lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // Section reveal on scroll (replaces IntersectionObserver)
+  gsap.utils.toArray('.reveal').forEach((el) => {
+    if (prefersReducedMotion) {
+      el.classList.add('is-visible');
+      return;
+    }
+    gsap.fromTo(el,
+      { opacity: 0, y: 18 },
+      {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' },
+        onStart: () => el.classList.add('is-visible')
+      }
+    );
+  });
+
+  if (!prefersReducedMotion) {
+    // Cards entering in cascade (Soluções)
+    gsap.utils.toArray('.cards3').forEach((grid) => {
+      const cards = grid.querySelectorAll(':scope > .card');
+      if (!cards.length) return;
+      gsap.fromTo(cards,
+        { opacity: 0, y: 26 },
+        {
+          opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.12,
+          scrollTrigger: { trigger: grid, start: 'top 85%' }
+        }
+      );
+    });
+
+    // Pain list entering in cascade (Problema section)
+    gsap.utils.toArray('.pain-list').forEach((list) => {
+      const items = list.querySelectorAll('li');
+      if (!items.length) return;
+      gsap.fromTo(items,
+        { opacity: 0, x: 14 },
+        {
+          opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1,
+          scrollTrigger: { trigger: list, start: 'top 85%' }
+        }
+      );
+    });
+
+    // Hero headline: split into individual letters and cascade them in on page load
+    function splitToChars(el){
+      Array.from(el.childNodes).forEach(node => {
+        if (node.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          node.textContent.split('').forEach(ch => {
+            const span = document.createElement('span');
+            span.className = 'char';
+            span.style.display = 'inline-block';
+            span.textContent = ch === ' ' ? ' ' : ch;
+            frag.appendChild(span);
+          });
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1) {
+          splitToChars(node);
+        }
+      });
+    }
+    const heroH1 = document.querySelector('.hero h1');
+    if (heroH1) {
+      splitToChars(heroH1);
+      gsap.from('.hero h1 .char', {
+        opacity: 0, y: 16, duration: 0.5, ease: 'power2.out', stagger: 0.014, delay: 0.15
+      });
+    }
+
+    // Transformação: section pins in place while its lines reveal one by one, then releases
+    const tfLines = document.querySelectorAll('.transform-lines p');
+    if (tfLines.length) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: '.transformacao',
+          start: 'top top',
+          end: '+=1400',
+          scrub: 1,
+          pin: true
+        }
+      })
+      .from(tfLines, { opacity: 0, y: 26, stagger: 0.5, ease: 'none' })
+      .from('.transform-final', { opacity: 0, y: 20, ease: 'none' }, '+=0.2');
+    }
+  }
+
+  // Scroll progress bar + active nav section (unchanged logic, still runs off native scroll position which Lenis keeps in sync)
+  const progressBar = document.getElementById('scrollProgress');
+  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+  const trackedSections = Array.from(navLinks).map(a => ({
+    link: a,
+    el: document.getElementById(a.dataset.section)
+  })).filter(s => s.el);
+
+  function onScroll(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+
+    let current = null;
+    trackedSections.forEach(s => {
+      const rect = s.el.getBoundingClientRect();
+      if (rect.top <= 120 && rect.bottom >= 120) {
+        current = s;
+      }
+    });
+    trackedSections.forEach(s => s.link.classList.toggle('active', s === current));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
